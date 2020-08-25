@@ -1,0 +1,35 @@
+<html>
+
+<head>
+  <title>Sample CAPTHA page</title>
+</head>
+
+<body>
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <script type="text/javascript">
+    function submitForm(token) {
+      document.getElementById("SampleRegistrationForm").submit();
+
+    }
+  </script>
+  <form action="http://localhost:3000/users" method="POST" id="SampleRegistrationForm">
+    <p>
+      <label for="first_name">Full name:</label>
+      <input type="text" name="fullname" id="fname">
+    </p>
+    <p>
+      <label for="last_name">Age:</label>
+      <input type="text" name="age" id="age">
+    </p>
+    <p>
+      <label for="last_name">User ID:</label>
+      <input type="text" name="userid" id="userid">
+    </p>
+    <button class="g-recaptcha" 
+        data-sitekey="YOUR SITE KEY HERE" 
+        data-callback='submitForm' 
+        data-action='submit'>Submit</button>
+  </form>
+</body>
+
+</html>
