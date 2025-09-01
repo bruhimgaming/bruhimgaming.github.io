@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Nyan website captcha</title>
+  <title>Nyan website</title>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <style>
     body {
@@ -15,22 +15,51 @@
       color: white;
       font-family: sans-serif;
     }
-    .g-recaptcha { margin-top: 20px; }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    input {
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background: #0b84ff;
+      color: white;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
-  <h1>Please verify to continue</h1>
-  
-  <div class="g-recaptcha"
-       data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-       data-callback="onCaptchaSuccess">
-  </div>
+  <h1>Please complete the CAPTCHA</h1>
+
+  <form id="SampleRegistrationForm">
+    <input type="text" name="fullname" placeholder="Full Name">
+    <input type="text" name="age" placeholder="Age">
+    <input type="text" name="userid" placeholder="User ID">
+
+    <button class="g-recaptcha"
+            data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+            data-callback="onCaptchaSuccess"
+            data-action="submit">
+      Submit
+    </button>
+  </form>
 
   <script>
-    function onCaptchaSuccess() {
-      // Redirect once captcha is solved
+    function onCaptchaSuccess(token) {
+      // Redirect to your Google Site after captcha is solved
       window.location.href = "https://sites.google.com/view/nyancorp/home?read_current=1";
     }
   </script>
 </body>
 </html>
+
