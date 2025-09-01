@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Nyan website captcha</title>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      color: white;
+      font-family: sans-serif;
+    }
+    .g-recaptcha { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Please verify to continue</h1>
+  
+  <div class="g-recaptcha"
+       data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+       data-callback="onCaptchaSuccess">
+  </div>
+
+  <script>
+    function onCaptchaSuccess() {
+      // Redirect once captcha is solved
+      window.location.href = "https://sites.google.com/view/nyancorp/home?read_current=1";
+    }
+  </script>
+</body>
+</html>
